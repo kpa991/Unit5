@@ -7,19 +7,14 @@
         public static void Main(string[] args)
         {
 
-            var array = GetArrayFromConsole();
-            var sortarray = SortArray(array);
-            Console.WriteLine("Вывод отсортированного массива:");
-            for (int i = 0; i < sortarray.Length; i++)
-            {
-                Console.WriteLine(sortarray[i]);
-            }
+            var array = GetArrayFromConsole(3);
+            ShowArray(array, true);
 
 
         }
-        static int[] GetArrayFromConsole()
+        static int[] GetArrayFromConsole(int num = 5)
         {
-            var result = new int[5];
+            var result = new int[num];
 
             for (int i = 0; i < result.Length; i++)
             {
@@ -45,6 +40,20 @@
                 }
             } 
             return result;
+        }
+
+        static void ShowArray(int[] array, bool IsSoft = false)
+        {
+            var temp = array;
+            if (IsSoft)
+            {
+                temp = SortArray(array);
+            }
+            Console.WriteLine("Отсортированный массив:");
+            foreach (var item in temp)
+            {
+                Console.WriteLine(item);
+            }
         }
     }
 }
