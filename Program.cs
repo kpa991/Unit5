@@ -7,17 +7,19 @@
             var someName = "Евгения";
             Console.WriteLine(someName);
 
-            GetName(someName);
+            GetName(ref someName);
 
             Console.WriteLine(someName);
 
             Console.WriteLine("Введите возраст");
-            int age = Console.ReadLine();  
+            int age = Convert.ToInt32(Console.ReadLine());  
+            ChangeAge(age);
+            Console.WriteLine(age);
            
             Console.ReadLine();
         }
 
-        static void GetName (string name)
+        static void GetName (ref string name)
         {
             Console.WriteLine("Введите имя");
             name = Console.ReadLine();
