@@ -5,22 +5,31 @@ class MainClass
     static void Main(string[] args)
     {
         Console.WriteLine("Напишите число");
-        var y = int.Parse(Console.ReadLine());
-        Console.WriteLine(Factorial(y));
-         
+        var N = int.Parse(Console.ReadLine());
+        Console.WriteLine("Напишите степень");
+        var pow = byte.Parse(Console.ReadLine());
+
+        Console.WriteLine(PowerUp(N, pow));      
 
         Console.ReadKey();
     }
 
-    static decimal Factorial(int x)
+    private static int PowerUp(int N, byte pow)
     {
-        if (x == 0)
+        if (pow == 0)
         {
             return 1;
         }
         else
         {
-            return x * Factorial(x - 1);
+            if (pow == 1)
+            {
+                return N;
+            }
+            else
+            {
+                return N * PowerUp(N, --pow);
+            }
         }
     }
 
