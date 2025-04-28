@@ -1,24 +1,33 @@
-﻿namespace Modul5
-{
-    internal class Program
-    {
-        static int num1 = 667;
+﻿using System;
 
-        public static void Main(string[] args)
+class MainClass
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine("Напишите что-то");
+        var str = Console.ReadLine();
+
+        Console.WriteLine("Укажите глубину эха");
+        var deep = int.Parse(Console.ReadLine());
+
+        Echo(str, deep);
+
+        Console.ReadKey();
+    }
+
+    static void Echo(string saidworld, int deep)
+    {
+        var modif = saidworld;
+        if (modif.Length > 2)
         {
-            Console.WriteLine(num1);
-            Console.WriteLine(Sum());
-            if (num1 > 0)
-            {
-                var num3=5;
-                Console.WriteLine(num1+ num3);
-            }
+            modif = modif.Remove(0, 2);
         }
 
-        static int Sum()
+        Console.WriteLine("..."+ modif);
+
+        if (deep > 1)
         {
-            var num2 = 1;
-            return num1 + num2;
+            Echo(modif, deep - 1);
         }
     }
 }
