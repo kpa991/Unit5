@@ -2,83 +2,23 @@
 {
     internal class Program
     {
+        static int num1 = 667;
 
-        
         public static void Main(string[] args)
         {
-
-            var array = GetArrayFromConsole(3);
-            ShowArray(array, true);
-
-
-        }
-        static int[] GetArrayFromConsole(int num = 5)
-        {
-            var result = new int[num];
-
-            for (int i = 0; i < result.Length; i++)
+            Console.WriteLine(num1);
+            Console.WriteLine(Sum());
+            if (num1 > 0)
             {
-                Console.WriteLine("Введите элемент массива номер {0}", i + 1);
-                result[i] = int.Parse(Console.ReadLine());
+                var num3=5;
+                Console.WriteLine(num1+ num3);
             }
-
-            return result;
-        }
-        static void SortArray(in int[] array, out int[] sorteddesc, out int[] sortedasc)
-        {
-            sorteddesc = SortArrayDesc(array);
-            sortedasc = SortArrayAsc(array);
-
         }
 
-        static int[] SortArrayAsc(int[] result)
+        static int Sum()
         {
-            int temp = 0;
-            for (int i = 0; i < result.Length; i++)
-            {
-                for (int j = i + 1; j < result.Length; j++)
-                {
-                    if (result[i] > result[j])
-                    {
-                        temp = result[i];
-                        result[i] = result[j];
-                        result[j] = temp;
-                    }
-                }
-            }
-            return result;
-        }
-
-        static int[] SortArrayDesc(int[] result)
-        {
-            int temp = 0;
-            for (int i = 0; i < result.Length; i++)
-            {
-                for (int j = i + 1; j < result.Length; j++)
-                {
-                    if (result[i] < result[j])
-                    {
-                        temp = result[i];
-                        result[i] = result[j];
-                        result[j] = temp;
-                    }
-                }
-            }
-            return result;
-        }
-
-        static void ShowArray(int[] array, bool IsSoft = false)
-        {
-            var temp = array;
-            if (IsSoft)
-            {
-                temp = SortArray(array);
-            }
-            Console.WriteLine("Отсортированный массив:");
-            foreach (var item in temp)
-            {
-                Console.WriteLine(item);
-            }
+            var num2 = 1;
+            return num1 + num2;
         }
     }
 }
