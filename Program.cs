@@ -4,31 +4,23 @@ class MainClass
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Напишите что-то");
-        var str = Console.ReadLine();
-
-        Console.WriteLine("Укажите глубину эха");
-        var deep = int.Parse(Console.ReadLine());
-
-        Echo(str, deep);
+        Console.WriteLine("Напишите число");
+        var y = int.Parse(Console.ReadLine());
+        Console.WriteLine(Factorial(y));
+         
 
         Console.ReadKey();
     }
 
-    static void Echo(string saidworld, int deep)
+    static decimal Factorial(int x)
     {
-        var modif = saidworld;
-        if (modif.Length > 2)
+        if (x == 0)
         {
-            modif = modif.Remove(0, 2);
+            return 1;
         }
-
-        Console.BackgroundColor = (ConsoleColor)deep;
-        Console.WriteLine("..."+ modif);
-
-        if (deep > 1)
+        else
         {
-            Echo(modif, deep - 1);
+            return x * Factorial(x - 1);
         }
     }
 
