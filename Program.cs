@@ -1,34 +1,25 @@
-﻿namespace Modul5
-{
-    internal class Program
-    {
-        public static void Main(string[] args)
-        {
-            var someName = "Евгения";
-            Console.WriteLine(someName);
+﻿using System;
 
-            GetName(ref someName);
+class MainClass {
+  public static void Main (string[] args) {
+		
+		var arr = new int[] { 1, 2,3 };
+		var data = 5;
 
-            Console.WriteLine(someName);
+		BigDataOperation(arr, ref data);
 
-            Console.WriteLine("Введите возраст");
-            int age = Convert.ToInt32(Console.ReadLine());  
-            ChangeAge(age);
-            Console.WriteLine(age);
-           
-            Console.ReadLine();
-        }
+		Console.WriteLine(arr[0]);
 
-        static void GetName (ref string name)
-        {
-            Console.WriteLine("Введите имя");
-            name = Console.ReadLine();
-        }
+		Console.ReadKey();
 
-        static void ChangeAge(int age)
-        {
-            age = age + 1;
-        }
-       
-    }
+  }
+
+	static void BigDataOperation(int[] array, ref int data)
+	{
+		data = 4;
+		array[0] = 4;
+	}
+
+	
+
 }
